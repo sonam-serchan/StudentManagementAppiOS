@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE53FC142165C253000D764D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53FC132165C253000D764D /* HomeController.swift */; };
+		EE53FC162166129B000D764D /* StudentEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53FC152166129B000D764D /* StudentEntryController.swift */; };
+		EE53FC18216631F8000D764D /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53FC17216631F8000D764D /* StudentTableViewController.swift */; };
+		EE53FC1A21663617000D764D /* StudentInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53FC1921663617000D764D /* StudentInfoController.swift */; };
+		EE53FC1C2166E85A000D764D /* StudentUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53FC1B2166E85A000D764D /* StudentUpdateController.swift */; };
 		EE7B5D5B21645AAF00FB5197 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7B5D5A21645AAF00FB5197 /* AppDelegate.swift */; };
 		EE7B5D5D21645AAF00FB5197 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7B5D5C21645AAF00FB5197 /* ViewController.swift */; };
 		EE7B5D6021645AAF00FB5197 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE7B5D5E21645AAF00FB5197 /* Main.storyboard */; };
@@ -27,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE53FC132165C253000D764D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		EE53FC152166129B000D764D /* StudentEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEntryController.swift; sourceTree = "<group>"; };
+		EE53FC17216631F8000D764D /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		EE53FC1921663617000D764D /* StudentInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoController.swift; sourceTree = "<group>"; };
+		EE53FC1B2166E85A000D764D /* StudentUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUpdateController.swift; sourceTree = "<group>"; };
 		EE7B5D5721645AAF00FB5197 /* StudentManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7B5D5A21645AAF00FB5197 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE7B5D5C21645AAF00FB5197 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +96,11 @@
 				EE7B5D6621645AB100FB5197 /* LaunchScreen.storyboard */,
 				EE7B5D6921645AB100FB5197 /* Info.plist */,
 				EE7B5D6121645AAF00FB5197 /* StudentManagement.xcdatamodeld */,
+				EE53FC132165C253000D764D /* HomeController.swift */,
+				EE53FC152166129B000D764D /* StudentEntryController.swift */,
+				EE53FC17216631F8000D764D /* StudentTableViewController.swift */,
+				EE53FC1921663617000D764D /* StudentInfoController.swift */,
+				EE53FC1B2166E85A000D764D /* StudentUpdateController.swift */,
 			);
 			path = StudentManagement;
 			sourceTree = "<group>";
@@ -200,9 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE53FC142165C253000D764D /* HomeController.swift in Sources */,
 				EE7B5D6321645AAF00FB5197 /* StudentManagement.xcdatamodeld in Sources */,
+				EE53FC18216631F8000D764D /* StudentTableViewController.swift in Sources */,
 				EE7B5D5D21645AAF00FB5197 /* ViewController.swift in Sources */,
+				EE53FC1A21663617000D764D /* StudentInfoController.swift in Sources */,
 				EE7B5D5B21645AAF00FB5197 /* AppDelegate.swift in Sources */,
+				EE53FC1C2166E85A000D764D /* StudentUpdateController.swift in Sources */,
+				EE53FC162166129B000D764D /* StudentEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

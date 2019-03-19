@@ -88,6 +88,108 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    //MARK: getContext()
+    func getContext()->NSManagedObjectContext{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    //MARK: Store Student Info
+    func storeStudentInfo(id: Int, firstName: String, lastName: String, gender: String, course: String, age: Int, address: String){
+        let context = getContext()
+        
+        //retrieve the entity that we just created
+        let entity = NSEntityDescription.entity(forEntityName: "Student", in: context)
+        let transc = NSManagedObject(entity: entity!, insertInto: context)
+        
+        //set the entity values
+        transc.setValue(id, forKey:"id")
+        transc.setValue(firstName, forKey: "firstName")
+        transc.setValue(lastName, forKey: "lastName")
+        transc.setValue(gender, forKey: "gender")
+        transc.setValue(course, forKey: "course")
+        transc.setValue(age, forKey: "age")
+        transc.setValue(address, forKey: "address")
+        
+        //save the object
+        do{
+            try context.save()
+        } catch let error as NSError{
+            print("Could not save \(error), \(error.userInfo)")
+        } catch { }
+        
+    }
+    
+    //MARK: Get Student Data
+    func getStudentInfo() -> [String] {
+        var student: [String] = []
+        var info = ""
+        //Craate a fetch request, telling it about the entity
+        let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
+        do{
+            //go get the results
+            let searchResults = try getContext().fetch(fetchRequest)
+            
+            //You need to convert to NSManagedObject to use 'for' loops
+            for trans in searchResults as [NSManagedObject]{
+                let id = String(trans.value(forKey: "id") as! Int)
+                let firstName = trans.value(forKey: "firstName") as! String
+                let lastName = trans.value(forKey: "lastName") as! String
+                let gender = trans.value(forKey: "gender") as! String
+                let course = trans.value(forKey: "course") as! String
+                let age = String(trans.value(forKey: "age") as! Int)
+                let address = trans.value(forKey: "address") as! String
+                info = id + ", " + firstName + " " + lastName + ", " + gender + ", " + course + ", " + age + ", " + address
+                student.append(info)
+            }
+        } catch {
+            print("Error with request: \(error)")
+        }
+        return student;
+    }
+    
+    //MARK: Remove Student Records
+    func removeRecords(){
+        let context = getContext()
+        //delete everything in the table Pizza
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Student")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do{
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("There was an error")
+        }
+    }
+    
+    //MARK: Delete by Id
+    func deleteStudentInfo (sid: String) {
+        let context = getContext()
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Student")
+        
+        fetchRequest.predicate = NSPredicate(format: "id == %@", sid)
+        
+        do {
+            
+            let test = try context.fetch(fetchRequest)
+            //if(test.count == 1) {
+            //print("data read!")
+            let objectToDelete = test[0] as! NSManagedObject
+            context.delete(objectToDelete)
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Could not Delete \(error), \(error.userInfo)")
+            }
+            
+            //}// end of if
+            
+        } catch let error as NSError{
+            print("Could not Delete \(error), \(error.userInfo)")
+        }
+    }
 
 }
 
